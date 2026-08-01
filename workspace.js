@@ -650,7 +650,7 @@ document.getElementById("cancelRename").onclick=()=>{
 
 document.getElementById("homeButton").onclick = () => {
 
-    window.location.href = "code.html";
+    window.location.href = "index.html";
 
 };
 
