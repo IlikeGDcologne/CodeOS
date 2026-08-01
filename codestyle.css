@@ -1,0 +1,509 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,sans-serif;
+}
+
+body{
+
+    background:#0f172a;
+    color:white;
+
+}
+
+.navbar{
+
+    width:100%;
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 60px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    position:sticky;
+
+    top:0;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    animation:logoGlow 4s ease-in-out infinite;
+
+}
+
+.navButtons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.primary{
+
+    background:#3b82f6;
+
+    color:white;
+
+}
+
+.secondary{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+.hero{
+
+    height:80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    gap:25px;
+
+}
+
+.hero h1{
+
+    font-size:70px;
+
+}
+
+.hero p{
+
+    width:700px;
+
+    color:#cbd5e1;
+
+    font-size:20px;
+
+    line-height:1.6;
+
+}
+
+.heroButtons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.cards{
+
+    width:90%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    padding-bottom:80px;
+
+}
+
+.card{
+
+    background:#1e293b;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+    font-size:40px;
+
+}
+
+.card h2{
+
+    margin-top:20px;
+
+    font-size:28px;
+
+}
+
+.card p{
+
+    margin-top:12px;
+
+    color:#cbd5e1;
+
+    font-size:17px;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+#backgroundCode{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+}
+
+.codeLine{
+
+    position:absolute;
+
+    color:rgba(255,255,255,.06);
+
+    font-family:monospace;
+
+    font-size:22px;
+
+    white-space:nowrap;
+
+    animation:floatUp linear infinite;
+
+    user-select:none;
+
+    filter:blur(.4px);
+
+}
+
+@keyframes floatUp{
+
+    from{
+
+        transform:translateY(110vh);
+
+    }
+
+    to{
+
+        transform:translateY(-150px);
+
+    }
+
+}
+
+.particle{
+
+    position:fixed;
+
+    width:4px;
+
+    height:4px;
+
+    border-radius:50%;
+
+    background:#60a5fa;
+
+    opacity:.25;
+
+    pointer-events:none;
+
+    animation:particleFloat linear infinite;
+
+}
+
+@keyframes particleFloat{
+
+    from{
+
+        transform:translateY(110vh);
+
+    }
+
+    to{
+
+        transform:translateY(-100px);
+
+    }
+
+}
+
+@keyframes logoGlow{
+
+    0%,100%{
+
+        text-shadow:none;
+
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 8px #3b82f6,
+        0 0 18px #3b82f6,
+        0 0 35px #60a5fa;
+
+    }
+
+}
+
+/* Overlay */
+
+#paletteOverlay{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding-top:120px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:9999;
+
+}
+
+#paletteOverlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* Palette */
+
+#commandPalette{
+
+    width:700px;
+
+    background:#172033;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.45);
+
+    transform:translateY(-30px) scale(.96);
+
+    transition:.3s;
+
+}
+
+#paletteOverlay.show #commandPalette{
+
+    transform:translateY(0) scale(1);
+
+}
+
+#commandInput{
+
+    width:100%;
+
+    padding:22px;
+
+    font-size:20px;
+
+    border:none;
+
+    outline:none;
+
+    background:#1f2b45;
+
+    color:white;
+
+}
+
+#commandInput::placeholder{
+
+    color:#94a3b8;
+
+}
+
+#commandList{
+
+    max-height:350px;
+
+    overflow:auto;
+
+}
+
+.command{
+
+    padding:18px 22px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+.command:hover{
+
+    background:#24334f;
+
+}
+
+.command.selected{
+
+    background:#3b82f6;
+
+    color:white;
+
+}
+
+/* ==========================
+   Boot Screen
+========================== */
+
+#bootScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#08111f;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+    transition:.8s;
+
+}
+
+#bootScreen.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+#bootContent{
+
+    width:450px;
+
+    text-align:center;
+
+}
+
+#bootLogo{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+}
+
+#bootVersion{
+
+    color:#94a3b8;
+
+    margin-bottom:35px;
+
+}
+
+#bootStatus{
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+}
+
+#bootBar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#1e293b;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+#bootProgress{
+
+    width:0%;
+
+    height:100%;
+
+    background:#3b82f6;
+
+    transition:.4s;
+
+}
